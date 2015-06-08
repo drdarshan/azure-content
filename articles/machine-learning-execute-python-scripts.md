@@ -118,7 +118,6 @@ Plots created using MatplotLib that can be visualized on the browser can be retu
 
 In order to generate images from MatplotLib, you must compete the following procedure:
 
-* switch the backend to “AGG” from the default Qt-based renderer 
 * create a new figure object 
 * get the axis and generate all plots into it 
 * save the figure to a PNG file 
@@ -161,7 +160,7 @@ Figure 11. Experiment to rank features in the Pima Indian Diabetes dataset.
 ## Limitations 
 The [Execute Python Script][execute-python-script] currently has the following limitations:
 
-1.	*Sandboxed execution.* The Python runtime is currently sandboxed and, as a result, does not allow access to the network or to the local file system in a persistent manner. All files saved locally are isolated and deleted once the module finishes. The Python code cannot access most directories on the machine it runs on, the exception being the current directory and its sub-directories.
+1.	*Sandboxed execution.* The Python runtime is currently sandboxed and, as a result, does not allow access to the local file system in a persistent manner. All files saved locally are isolated and deleted once the module finishes. The Python code cannot access most directories on the machine it runs on, the exception being the current directory and its sub-directories. The runtime does allow a user's Python script to access the network but limits the bandwidth. 
 2.	*Lack of sophisticated development and debugging support.* The Python module currently does not support IDE features such as intellisense and debugging. Also, if the module fails at runtime, the full Python stack trace is available, but must be viewed in the output log for the module. We currently recommend that users develop and debug their Python scripts in an environment such as IPython and then import the code into the module.
 3.	*Single data frame output.* The Python entry point is only permitted to return a single data frame as output. It is not currently possible to return arbitrary Python objects such as trained models directly back to the Azure Machine Learning runtime. Like [Execute R Script][execute-r-script], which has the same limitation, it is however possible in many cases to pickle objects into a byte array and then return that inside of a data frame.
 4.	*Inability to customize Python installation*. Currently, the only way to add custom Python modules is via the zip file mechanism described earlier. While this is feasible for small modules, it is cumbersome for large modules (especially those with native DLLs) or a large number of modules. 
