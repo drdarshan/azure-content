@@ -117,6 +117,7 @@ Figure 7. User-defined function in use inside the [Execute Python Script][execut
 Plots created using MatplotLib that can be visualized on the browser can be returned by the [Execute Python Script][execute-python-script]. But the plots are not automatically redirected to images as they are when using R. So the user must explicitly save any plots to PNG files if they are to be returned back to Azure Machine Learning. 
 
 In order to generate images from MatplotLib, you must compete the following procedure:
+
 * switch the backend to “AGG” from the default Qt-based renderer 
 * create a new figure object 
 * get the axis and generate all plots into it 
